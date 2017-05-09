@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/css/index.css')
+    title Wemo Control
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  body
+    .header
+      h1.page-title Lights
+    
+    .main-content
+      block content
+      form(name='ActionButtons', action='', method='post')
+      
+      div.button-group
+        h2.group-title Lamp
+        input.btn.on(type='button', value='On', onclick='soap("http://192.168.1.68/upnp/control/basicevent1", "1");')
+        input.btn.off(type='button', value='Off', onclick='soap("http://192.168.1.68/upnp/control/basicevent1", "0");')
+      
+      div.button-group 
+        h2.group-title Main
+        input.btn.on(type='button', value='On', onclick='soap("http://192.168.1.253/upnp/control/basicevent1", "1");')
+        input.btn.off(type='button', value='Off', onclick='soap("http://192.168.1.253/upnp/control/basicevent1", "0");')
+      
+      div.button-group 
+        h2.group-title All
+        input.btn.on(type='button', value='On', onclick='changeAll("1");')
+        input.btn.off(type='button', value='Off', onclick='changeAll("0");')
+
+      script(src="/scripts/script.js")

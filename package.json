@@ -1,0 +1,35 @@
+{
+    "name": "wemotest",
+    "version": "1.0.0",
+    "description": "wemotest",
+    "main": "index.js",
+    "scripts": {
+        "build-css": "stylus source/stylesheets/index.styl -o static/css",
+        "watch-css": "stylus source/stylesheets/index.styl -o static/css -w",
+        "build-scripts": "cp source/scripts/script.js static/scripts",
+        "copy-images": "cp source/images/wallpaper.jpg static/images",
+        "clean": "rm -rf static/css && mkdir -p static/css && rm -rf static/scripts && mkdir -p static/scripts && rm -rf static/images && mkdir -p static/images",
+        "build": "npm run clean && npm run build-css && npm run build-scripts && npm run copy-images",
+        "watch": "npm run clean && npm run build-scripts && npm run copy-images && npm run watch-css & nodemon server -e js,jade",
+        "start": "node server"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leeming101/wemotest.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/leeming101/wemotest/issues"
+    },
+    "homepage": "https://github.com/leeming101/wemotest#readme",
+    "dependencies": {
+        "express": "^4.15.2",
+        "jade": "^1.11.0",
+        "morgan": "^1.8.1",
+        "stylus": "^0.54.5"
+    },
+    "devDependencies": {
+        "nodemon": "^1.11.0"
+    }
+}
