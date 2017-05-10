@@ -13,22 +13,27 @@ html
       block content
       form(name='ActionButtons', action='', method='post')
       
-      div.button-group
-        h2.group-title Lamp
-        div.btn.on(id='btnLampOn', onclick='setstate("http://192.168.1.66","1","Lamp");')
-          span On
-        div.btn.off(id='btnLampOff', onclick='setstate("http://192.168.1.66","0", "Lamp");')
-          span Off
-      
       div.button-group 
         h2.group-title Main
-        input.btn.on(type='button', value='On', onclick='soap("http://192.168.1.253/upnp/control/basicevent1", "1");')
-        input.btn.off(type='button', value='Off', onclick='soap("http://192.168.1.253/upnp/control/basicevent1", "0");')
+        div.btn.single.on(id='btnMainOn', onclick='setstate("http://192.168.1.253","1","Main");')
+          span On
+        div.btn.single.off(id='btnMainOff', onclick='setstate("http://192.168.1.253","0", "Main");')
+          span Off
+
+      div.button-group
+        h2.group-title Lamp
+        div.btn.single.on(id='btnLampOn', onclick='setstate("http://192.168.1.68","1","Lamp");')
+          span On
+        div.btn.single.off(id='btnLampOff', onclick='setstate("http://192.168.1.68","0", "Lamp");')
+          span Off
+      
       
       div.button-group 
         h2.group-title All
-        input.btn.on(type='button', value='On', onclick='changeAll("1");')
-        input.btn.off(type='button', value='Off', onclick='changeAll("0");')
-      
+        div.btn.on(id='btnAllOn', value='On', onclick='changeAll("1");')
+          span On
+        div.btn.off(id='btnAllOff', value='Off', onclick='changeAll("0");')
+          span Off
+
       script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
       script(src="/scripts/script.js")
